@@ -1,0 +1,10 @@
+git init
+import tensorflow_hub as hub
+import pandas as pd
+
+# Loading model directly from TensorFlow Hub
+detector = hub.load("https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1")
+
+# Loading csv with labels of classes
+labels = pd.read_csv('labels.csv', sep=';', index_col='ID')
+labels = labels['OBJECT (2017 REL.)']
